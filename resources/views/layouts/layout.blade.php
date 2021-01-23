@@ -12,11 +12,15 @@
 
   <nav class='navbar navbar-expand-md navbar-dark bg-dark fixed-top'>
     <a class='navbar-brand' href={{route('index')}}>Artists</a>
-    <a href="/login">ログイン</a>
-    <a href="/register">登録</a>
+    @if (Auth::check())
+    <a href="/artists/public/home">{{$user->name}}さんこんにちは</a>
+    @else
+    <a href="/artists/public/login">ログイン</a>
+    <a href="/artists/public/register">登録</a>
+    @endif
   </nav>
 
-    @section('content')
+  @section('content')
   @show
 
 
