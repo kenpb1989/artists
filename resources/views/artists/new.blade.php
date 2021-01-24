@@ -12,6 +12,16 @@
   @csrf
   <input type="hidden" name="user_id" value="{{ $user->id }}">
   <tr>
+    <th>やってること</th>
+    <td>
+      <select name="job">
+        @foreach ($jobs as $job)
+          <option value="{{ $job->id }}">{{ $job->name }}</option>
+        @endforeach
+      </select>
+    </td>
+  </tr>
+  <tr>
     <th>自己紹介</th>
     <td><textarea name="article"  cols="30" rows="10"></textarea></td>
   </tr>
@@ -21,5 +31,4 @@
   </tr>
 </form>
 </table>
-@endif
 @endsection

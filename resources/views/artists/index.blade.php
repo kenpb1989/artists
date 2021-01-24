@@ -4,9 +4,12 @@
 
 @section('content')
 <h1>トップページ</h1>
+<div>
+    <a href='{{ route("show") }}'>記事一覧</a>
+<div>
     @auth
         <div>
-            <a href='{{ route("edit") }}'>記事編集</a>
+            <a href='{{ route("mypage") }}'>マイページ</a>
         <div>
     @endauth
 @endsection
