@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.app')
 
 @section('title','編集ページ')
 
@@ -14,9 +14,37 @@
     <td><input type="text" name='name' value="{{$user->name }}"></td>
   </tr>
   <tr>
-    <th>自己紹介</th>
-    <td><textarea name="article"  cols="30" rows="10" >{{ $article->article }}</textarea></td>
+    <th>パート</th>
+    <td>
+      <select name="id">
+
+        @foreach ($jobs as $job)
+          @if ($job->id == $user->job_id)
+            <option value="{{ $job->id }}" selected>{{ $job->job }}</option>
+          @else
+            <option value="{{ $job->id }}">{{ $job->job }}</option>
+          @endif
+        @endforeach
+
+      </select>
+    </td>
   </tr>
+
+  <tr>
+    <th>自己紹介</th>
+    <td><textarea name="article" cols="30" rows="10" >{{ $user->article->article }}</textarea></td>
+  </tr>
+
+  <tr>
+    <th>Twitter</th>
+    <td><input type="text" name="twitter" value="{{ $user->article->twitter }}"></td>
+  </tr>
+
+  <tr>
+    <th>Youtube</th>
+    <td><input type="text" name="youtube" value="{{ $user->article->youtube }}"></td>
+  </tr>
+
   <tr>
     <th></th>
     <td><input type="submit" value="送信"></td>
@@ -24,4 +52,3 @@
 </form>
 </table>
 @endsection
- {{-- value="{{ $article->article }}"> --}}

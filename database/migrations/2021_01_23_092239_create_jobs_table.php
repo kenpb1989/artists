@@ -15,7 +15,6 @@ class CreateJobsTable extends Migration
     {
         Schema::create('jobs', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
             $table->text('job');
             $table->timestamps();
         });

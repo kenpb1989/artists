@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.app')
 
 @section('title', 'mypage')
 
@@ -10,8 +10,20 @@
     <td>{{ $user->name }}</td>
   </tr>
   <tr>
+    <th>パート：</th>
+    <td>{{ $user->job->job }}</td>
+  </tr>
+  <tr>
     <th>自己紹介：</th>
-    <td>{{ $article->article }}</td>
+    <td>{{ $user->article->article }}</td>
+  </tr>
+  <tr>
+    <th>Twitter：</th>
+    <td>{{ $user->article->twitter }}</td>
+  </tr>
+  <tr>
+    <th>Youtube：</th>
+    <td>{{ $user->article->youtube }}</td>
   </tr>
   <tr>
     <th></th>

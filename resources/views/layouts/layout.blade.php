@@ -17,8 +17,8 @@
     {{-- @if (Auth::check())
     <a href="/artists/public/home">{{$user->name}}さんこんにちは</a>
     @else
-    <a href="/artists/public/login">ログイン</a>
-    <a href="/artists/public/register">登録</a> --}}
+    <a href="{{ route('login') }}">ログイン</a>
+    <a href="{{ route('register') }}">登録</a> --}}
 {{--
     @endif --}}
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">

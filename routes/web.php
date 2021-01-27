@@ -15,8 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'App\Http\Controllers\ArtistController@index')
     ->name('index');
+Route::get('list', 'App\Http\Controllers\ArtistController@list')->name('list');
 Route::get('show', 'App\Http\Controllers\ArtistController@show')->name('show');
-
 Auth::routes();
 
 Route::get('new', 'App\Http\Controllers\ArtistController@new');
