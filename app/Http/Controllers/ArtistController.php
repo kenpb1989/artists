@@ -10,6 +10,7 @@ use App\Models\Job;
 use App\Models\User;
 
 
+
 class ArtistController extends Controller
 {
     public function __construct()

@@ -6,6 +6,8 @@
 
 require('./bootstrap');
 
+require('./chat');
+
 window.Vue = require('vue').default;
 
 /**

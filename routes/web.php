@@ -27,3 +27,8 @@ Route::get('/edit', 'App\Http\Controllers\ArtistController@edit')->name('edit');
 Route::post('/edit', 'App\Http\Controllers\ArtistController@edit2');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::group(['prefix' => 'chat', 'middleware' => 'auth'], function () {
+    Route::post('show', 'ChatController@show')->name('chat.show');
+    Route::post('chat', 'ChatController@chat')->name('chat.chat'); // この行を追加します。
+});
