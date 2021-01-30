@@ -21,14 +21,32 @@ class ArtistController extends Controller
     public function index(Request $request)
     {
         $user = Auth::user();
-        return view('artists/index', ['user' => $user]);
+        $jobs = Job::all();
+
+        return view('artists/index', compact('user', 'jobs'));
     }
 
     public function list(Request $request)
     {
-        $users = User::all();
+        $jobs = Job::all();
 
-        return view('artists/list', ['users' => $users]);
+
+
+        $query = User::query();
+        $search_word = $request->search_word;
+        $job_id = $request->job_id;
+
+        if ($request->has('search_word') && $search_word != '') {
+            $query->where('name',  'like', '%' . $search_word . '%')->get();
+        }
+
+        if ($request->has('job_id') && $job_id != ('')) {
+            $query->where('job_id', $job_id)->get();
+        }
+
+        $users = $query->paginate(5);
+
+        return view('artists/list', compact('users', 'jobs'));
     }
 
     public function show(Request $request)
